@@ -1,0 +1,78 @@
+(package-initialize)
+
+;; Install MELPA Package
+;;(when (>= emacs-major-version 24)
+  (require 'package)
+  (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+;; (package-initialize)
+;;)
+
+;; Install MARMALADE Package
+;;(when (>= emacs-major-version 24)
+;;  (require 'package)
+  (add-to-list 'package-archives '("marmalade" . "https://marmalade-repo.org/packages/") t)
+
+;;customize theme
+;;(add-to-list 'custom-theme-load-path "~/.emacs.d/elpa/atom-one-dark-theme-20181003.1908/")
+;;(load-theme 'atom-one-dark t)
+;;(if (display-graphic-p)
+;;    (enable-theme 'atom-one-dark)
+;;  (disable-theme 'atom-one-dark))
+
+(custom-set-variables
+ '(column-number-mode t)
+ '(cua-mode t nil (cua-base))
+ '(custom-enabled-themes (quote (tsdh-dark)))
+ '(select-enable-clipboard t)
+ '(show-paren-mode t)
+)
+
+(custom-set-faces
+ '(default ((t (:inherit nil :stipple nil :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 130 :width normal))))
+ '(scroll-bar ((t nil)))
+ )
+
+;;Turn on hl-line:
+(global-hl-line-mode 1)
+
+;;To keep syntax highlighting in the current line:
+(set-face-foreground 'highlight nil)
+
+;;(set-foreground-color "#839496")
+;;(set-background-color "#002b36")
+
+;; open with single window
+(setq inhibit-startup-screen t)
+(add-hook 'emacs-startup-hook 'delete-other-windows)
+
+;;scrollbar
+(scroll-bar-mode t)
+(set-scroll-bar-mode t)
+
+;; using speedbar for quick buffer navigation.                                                                                                                                       
+ (global-set-key [f8] "\M-x\ speedbar")
+
+;; maximize Emacs frame
+(add-to-list 'default-frame-alist '(fullscreen . maximized))
+
+;; disable the bell
+(setq ring-bell-function 'ignore)
+
+;; delete backup files
+;;(setq make_backup_files nil)
+(setq backup-directory-alist '(("." . "~/.emacs.d/backup"))
+  backup-by-copying t    ; Don't delink hardlinks
+  version-control t      ; Use version numbers on backups
+  delete-old-versions t  ; Automatically delete excess backups
+  kept-new-versions 20   ; how many of the newest versions to keep
+  kept-old-versions 5    ; and how many of the old
+  )
+;; UTF-8 as default encoding
+(set-language-environment "UTF-8")
+
+;; Dictionary
+(autoload 'ispell-get-word "ispell")
+(defun lookup-word (word)
+  (interactive (list (save-excursion (car (ispell-get-word nil)))))                                                                                                                  
+  (eww (format "http://en.wiktionary.org/wiki/%s" word)))
+(global-set-key (kbd "<f7>") 'lookup-word)

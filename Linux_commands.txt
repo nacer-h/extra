@@ -1,0 +1,1 @@
+scp -pr ahamdi@lxg0157.gsi.de:/data.local1/fnerling/VM/GlueX_Analysis_Workshop_32bit .

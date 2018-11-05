@@ -1,0 +1,42 @@
+
+
+#Installing panda root
+
+https://panda-wiki.gsi.de/foswiki/bin/view/Computing/PandaRootInstallGit
+https://panda-wiki.gsi.de/foswiki/bin/view/Computing/PandaRoot
+
+export FAIRROOTPATH=/cvmfs/fairroot.gsi.de/fairroot/v-15.11a_fairsoft-mar15p2/
+export SIMPATH=/cvmfs/fairroot.gsi.de/fairsoft/mar15
+
+echo $SIMPATH
+echo $FAIRROOTPATH
+
+#For code development
+svn co https://subversion.gsi.de/fairroot/pandaroot/trunk pandaroot
+
+# For direct analyses
+svn co https://subversion.gsi.de/fairroot/pandaroot/release/jan16 pandaroot
+
+cd pandaroot
+mkdir buildPanda
+cd buildPanda/
+cmake ../
+make -j4
+
+Using PANDAROOT:
+cd buildPanda/
+source config.sh
+
+# To Check your installation 
+
+cd /home/pandauser/fairsoft_jul14p3/pandaroot/macro/run
+ root -l sim_complete.C
+ root -l digi_complete.C
+ root -l reco_complete.C
+ root -l pid_complete.C
+ root -l ana_complete.C
+
+#If you work on the GSI batch farm
+lxpool.gsi.de
+
+

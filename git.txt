@@ -1,0 +1,33 @@
+1. Initialize Local Repository
+
+git init
+
+2. Add all Files for version control with
+
+git add .
+
+3.Create a commit with message of your choice
+
+git commit -m 'AddingBaseCode'
+
+4.Initialize Remote Repository
+
+Create a project on Github and copy the URL of your project and copy URL of the project.
+Click on "Clone or Download" botton on the git website
+
+5.Link Remote repo with Local repo
+
+Now use copied URL to link your local repo with remote GitHub repo. When you clone a repository with git clone, it automatically creates a \
+remote connection called origin pointing back to the cloned repository. The command remote is used to manage set of tracked repositories.
+
+git remote add origin https://github.com/hiteshsahu/Hassium-Word.git
+
+6.Synchronize
+Now we need to merge local code with remote code. This step is critical otherwise we won be able to Push Code on Github. You must call     \
+'git pull' before pushing your code.
+
+git pull origin master --allow-unrelated-histories
+
+7.Commit your code: Finally push all changes on Github
+
+git push -u origin master

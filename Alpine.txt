@@ -1,0 +1,33 @@
+Retrieving your INBOX
+
+The first thing to worry about is how to set up Alpine so you can read your Gmail.
+
+    Once you’ve installed Alpine, run it by typing alpine at the command prompt. Then type go to Main>Setup>collectionLists>Add. In each case, you can get to the menu by just typing the letter I’ve highlighted in bold.
+    Fill in the options like this:
+
+
+    Nickname : <choose a nickname>
+    Server : imap.gmail.com/ssl/user=username@gmail.com
+    Path :
+    View :
+
+    You can leave path and view blank.
+    Press <ctrl-x> to save your settings, and then go back to the collectionList and choose to Add as many different accounts as you wish. Press ‘E’ to exit the collectionList menu
+    There are a couple of configuration options you will want to change.
+        Go to Main Menu>Configuration and scroll down until you find the [Advanced User Preferences] section. Mark Save will Not Delete toward the end of that section.
+        Next go to Pruning Rule and choose don’t rename, don’t delete.
+    Hit ‘E’ to Exit setup, and choose yes to keep the settings.
+    To read your mails, go to the Main menu and choose ‘Folder List’. Hit ‘Enter’ to choose the folder you wish to look at, put in the password if necessary, and use ‘>’ and ‘<‘ to go back and forward between your folders to read your mails.
+
+Sending mails through Gmail
+
+To have the option of sending mails from different accounts, you need to use a feature called ‘Roles’.
+
+    Choose Setup>Rules, and type ‘R’ to choose ‘Roles’. ‘Add’ a new role.
+    Press ‘Enter’ to type in a nickname of your choice.
+    Under Current Folder Type go down to Specific and choose that.
+    Then go just below that to Folder List and press ‘T‘. You may need to input the password for your current folder. You can then navigate around the folder list and choose the folder that you want that Role to apply to. For example, if you’re looking at the inbox for account foo you want to send emails from foo. If you’re looking at account bar then that’s the account you want to send from too.
+    Now scroll all the way down to the section titled ACTIONS BEGIN HERE. Set the Set From field to the relevant account, eg ‘Foo Bar <foo.bar@gmail.com>. Then set Use SMTP Server to the following:
+
+    smtp.gmail.com/tls/user=username@gmail.com
+    Finally set Compose Use = to ‘With confirmation’. Hit ‘E’ to exit and save changes. Add a new role for each gmail account.

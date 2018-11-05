@@ -1,0 +1,5 @@
+installation:
+http://web-docs.gsi.de/~rdzhigad/www/research/software-installation [web-docs.gsi.de]
+
+Test:
+https://github.com/rdom/gluexdirc
